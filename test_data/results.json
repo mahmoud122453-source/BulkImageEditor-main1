@@ -1,0 +1,412 @@
+[
+  {
+    "test": "resize large.jpg max 800x800",
+    "status": "PASS",
+    "detail": "in=(2400, 1800) out=(800, 600) mode=RGB format=JPEG ratio_ok=True"
+  },
+  {
+    "test": "resize small.jpg max 800x800",
+    "status": "PASS",
+    "detail": "in=(120, 90) out=(120, 90) mode=RGB format=JPEG ratio_ok=True"
+  },
+  {
+    "test": "resize wide.jpg max 800x800",
+    "status": "PASS",
+    "detail": "in=(1800, 400) out=(800, 178) mode=RGB format=JPEG ratio_ok=True"
+  },
+  {
+    "test": "resize tall.jpg max 800x800",
+    "status": "PASS",
+    "detail": "in=(400, 1800) out=(178, 800) mode=RGB format=JPEG ratio_ok=True"
+  },
+  {
+    "test": "resize square.jpg max 800x800",
+    "status": "PASS",
+    "detail": "in=(700, 700) out=(700, 700) mode=RGB format=JPEG ratio_ok=True"
+  },
+  {
+    "test": "resize photo.png max 800x800",
+    "status": "PASS",
+    "detail": "in=(640, 480) out=(640, 480) mode=RGB format=PNG ratio_ok=True"
+  },
+  {
+    "test": "resize transparent.png max 800x800",
+    "status": "PASS",
+    "detail": "in=(400, 300) out=(400, 300) mode=RGBA format=PNG ratio_ok=True"
+  },
+  {
+    "test": "resize also.JPG max 800x800",
+    "status": "PASS",
+    "detail": "in=(300, 200) out=(300, 200) mode=RGB format=JPEG ratio_ok=True"
+  },
+  {
+    "test": "resize photo.jpeg max 800x800",
+    "status": "PASS",
+    "detail": "in=(900, 600) out=(800, 533) mode=RGB format=JPEG ratio_ok=True"
+  },
+  {
+    "test": "resize skips unsupported extensions",
+    "status": "PASS",
+    "detail": "copied_to_output=none"
+  },
+  {
+    "test": "resize keeps PNG transparency",
+    "status": "PASS",
+    "detail": "alpha_extrema=(0, 255)"
+  },
+  {
+    "test": "resize width-binding max box 400x10000",
+    "status": "PASS",
+    "detail": "out=(400, 300) mode=RGB"
+  },
+  {
+    "test": "dedicated width-only flag",
+    "status": "NOT IMPLEMENTED",
+    "detail": "API always receives a (max_width, max_height) box"
+  },
+  {
+    "test": "resize height-binding max box 10000x400",
+    "status": "PASS",
+    "detail": "out=(533, 400) mode=RGB"
+  },
+  {
+    "test": "dedicated height-only flag",
+    "status": "NOT IMPLEMENTED",
+    "detail": "API always receives a (max_width, max_height) box"
+  },
+  {
+    "test": "exact width and height ignoring aspect ratio",
+    "status": "NOT IMPLEMENTED",
+    "detail": "thumbnail fits inside the box and keeps the aspect ratio"
+  },
+  {
+    "test": "resize does not enlarge a smaller image",
+    "status": "PASS",
+    "detail": "out=(120, 90)"
+  },
+  {
+    "test": "resize batch multiple images",
+    "status": "PASS",
+    "detail": "count=9 files=['also.JPG', 'large.jpg', 'photo.jpeg', 'photo.png', 'small.jpg', 'square.jpg', 'tall.jpg', 'transparent.png', 'wide.jpg']"
+  },
+  {
+    "test": "resize empty input folder",
+    "status": "PASS",
+    "detail": "output_files=[]"
+  },
+  {
+    "test": "resize missing input directory",
+    "status": "PASS",
+    "detail": "FileNotFoundError: [WinError 3] The system cannot find the path specified: 'D:\\\\project_lv3\\\\BulkImageEditor-main\\\\test_data\\\\does_not_exist'; output_dir_created=True"
+  },
+  {
+    "test": "resize input path is a file",
+    "status": "PASS",
+    "detail": "NotADirectoryError: [WinError 267] The directory name is invalid: 'D:\\\\project_lv3\\\\BulkImageEditor-main\\\\test_data\\\\input\\\\small.jpg'"
+  },
+  {
+    "test": "resize output path is an existing file",
+    "status": "PASS",
+    "detail": "FileNotFoundError: [Errno 2] No such file or directory: 'D:\\\\project_lv3\\\\BulkImageEditor-main\\\\test_data\\\\output_is_file.txt\\\\small.jpg'"
+  },
+  {
+    "test": "resize output parent is a file",
+    "status": "PASS",
+    "detail": "FileNotFoundError: [WinError 3] The system cannot find the path specified: 'D:\\\\project_lv3\\\\BulkImageEditor-main\\\\test_data\\\\output_is_file.txt\\\\nested'"
+  },
+  {
+    "test": "resize overwrite existing filename",
+    "status": "PASS",
+    "detail": "mtime_changed=True"
+  },
+  {
+    "test": "resize corrupted image stops batch",
+    "status": "PASS",
+    "detail": "UnidentifiedImageError: cannot identify image file 'D:\\\\project_lv3\\\\BulkImageEditor-main\\\\test_data\\\\input_corrupt_order\\\\bad.jpg'; saved=['first.png']"
+  },
+  {
+    "test": "resize max_size 0,0",
+    "status": "FAIL",
+    "detail": "ZeroDivisionError: division by zero"
+  },
+  {
+    "test": "resize negative max width",
+    "status": "FAIL",
+    "detail": "ValueError: scale must be > 0"
+  },
+  {
+    "test": "watermark simple text",
+    "status": "PASS",
+    "detail": "size=(500, 400) mode=RGB format=JPEG changed=(432, 368, 496, 400)"
+  },
+  {
+    "test": "watermark position top-left",
+    "status": "PASS",
+    "detail": "expected=(10, 10, 90, 36) changed=(8, 16, 96, 48) center_delta=11.0"
+  },
+  {
+    "test": "watermark position top-right",
+    "status": "PASS",
+    "detail": "expected=(410, 10, 490, 36) changed=(408, 16, 496, 48) center_delta=11.0"
+  },
+  {
+    "test": "watermark position bottom-left",
+    "status": "PASS",
+    "detail": "expected=(10, 364, 90, 390) changed=(8, 368, 96, 400) center_delta=9.0"
+  },
+  {
+    "test": "watermark position bottom-right",
+    "status": "PASS",
+    "detail": "expected=(410, 364, 490, 390) changed=(408, 368, 496, 400) center_delta=9.0"
+  },
+  {
+    "test": "watermark position center",
+    "status": "PASS",
+    "detail": "expected=(210, 187, 290, 213) changed=(208, 192, 296, 224) center_delta=10.0"
+  },
+  {
+    "test": "watermark font sizes 12/40/80",
+    "status": "PASS",
+    "detail": "changed_heights={12: 16, 40: 32, 80: 64}"
+  },
+  {
+    "test": "watermark color #ff0000",
+    "status": "PASS",
+    "detail": "strongest_pixel=(255, 1, 0)"
+  },
+  {
+    "test": "watermark color #00ff00",
+    "status": "PASS",
+    "detail": "strongest_pixel=(0, 255, 0)"
+  },
+  {
+    "test": "watermark color #0000ff",
+    "status": "PASS",
+    "detail": "strongest_pixel=(1, 1, 255)"
+  },
+  {
+    "test": "watermark text opacity 0 / 0.25 / 1",
+    "status": "PASS",
+    "detail": "difference_mass={0: 0, 0.25: 83775, 1: 324241}"
+  },
+  {
+    "test": "watermark on light background",
+    "status": "PASS",
+    "detail": "changed=(344, 360, 488, 400)"
+  },
+  {
+    "test": "watermark on dark background",
+    "status": "PASS",
+    "detail": "changed=(344, 360, 488, 400)"
+  },
+  {
+    "test": "watermark long text",
+    "status": "PASS",
+    "detail": "changed=(8, 16, 500, 56)"
+  },
+  {
+    "test": "long text at bottom-right is clipped at the image edge",
+    "status": "PASS",
+    "detail": "changed=(0, 360, 496, 400)"
+  },
+  {
+    "test": "image watermark scale and bottom-right placement",
+    "status": "PASS",
+    "detail": "scaled=(50, 50) origin=(440, 340) pixel=(247, 4, 0) mode=RGB"
+  },
+  {
+    "test": "image watermark position top-left",
+    "status": "PASS",
+    "detail": "origin=(10, 10) pixel=(250, 1, 0)"
+  },
+  {
+    "test": "image watermark position top-right",
+    "status": "PASS",
+    "detail": "origin=(440, 10) pixel=(252, 0, 11)"
+  },
+  {
+    "test": "image watermark position bottom-left",
+    "status": "PASS",
+    "detail": "origin=(10, 340) pixel=(251, 0, 9)"
+  },
+  {
+    "test": "image watermark position bottom-right",
+    "status": "PASS",
+    "detail": "origin=(440, 340) pixel=(247, 4, 0)"
+  },
+  {
+    "test": "image watermark position center",
+    "status": "PASS",
+    "detail": "origin=(225, 175) pixel=(255, 0, 4)"
+  },
+  {
+    "test": "image watermark transparency changes the logo",
+    "status": "PASS",
+    "detail": "center_pixel=(31, 0, 190)"
+  },
+  {
+    "test": "image watermark alpha 0.5 matches one 50% blend",
+    "status": "FAIL",
+    "detail": "center_pixel=(31, 0, 190); expected about (127, 0, 128) for one blend"
+  },
+  {
+    "test": "image watermark preserves logo aspect ratio",
+    "status": "PASS",
+    "detail": "200x80 logo on 500px-wide base scaled to (50, 20)"
+  },
+  {
+    "test": "image watermark fill tiles the base",
+    "status": "PASS",
+    "detail": "bbox=(0, 0, 500, 400) corner=(254, 0, 0) far=(254, 0, 0)"
+  },
+  {
+    "test": "text watermark fill repeats",
+    "status": "PASS",
+    "detail": "changed=(0, 0, 500, 400)"
+  },
+  {
+    "test": "watermark drops source alpha on save",
+    "status": "PASS",
+    "detail": "size=(400, 300) mode=RGB format=PNG"
+  },
+  {
+    "test": "watermark batch mixed formats",
+    "status": "PASS",
+    "detail": "saved=['also.JPG', 'photo.jpeg', 'photo.png', 'small.jpg']"
+  },
+  {
+    "test": "watermark empty input folder",
+    "status": "PASS",
+    "detail": "files=[]"
+  },
+  {
+    "test": "missing watermark image",
+    "status": "PASS",
+    "detail": "FileNotFoundError: [Errno 2] No such file or directory: 'D:\\\\project_lv3\\\\BulkImageEditor-main\\\\test_data\\\\watermark\\\\missing.png'; saved=[]"
+  },
+  {
+    "test": "missing font uses fallback",
+    "status": "PASS",
+    "detail": "changed=(447, 383, 497, 400)"
+  },
+  {
+    "test": "invalid text color",
+    "status": "PASS",
+    "detail": "ValueError: Invalid hex color format: red. Expected format: '#RRGGBB'; saved=[]"
+  },
+  {
+    "test": "unknown position falls back to bottom-right",
+    "status": "PASS",
+    "detail": "pixel=(247, 4, 0)"
+  },
+  {
+    "test": "image alpha is clamped to 0..1",
+    "status": "PASS",
+    "detail": "alpha2=(255, 0, 0, 255) alpha-1=(255, 0, 0, 0)"
+  },
+  {
+    "test": "text alpha above 1",
+    "status": "PASS",
+    "detail": "saved=[WindowsPath('D:/project_lv3/BulkImageEditor-main/test_data/output/wm_text_alpha_high/blue_bg.jpg')]"
+  },
+  {
+    "test": "empty text with fill",
+    "status": "PASS",
+    "detail": "no exception"
+  },
+  {
+    "test": "image watermark on 8px base",
+    "status": "FAIL",
+    "detail": "ValueError: height and width must be > 0"
+  },
+  {
+    "test": "watermark corrupted image stops batch",
+    "status": "PASS",
+    "detail": "UnidentifiedImageError: cannot identify image file 'D:\\\\project_lv3\\\\BulkImageEditor-main\\\\test_data\\\\input_wm_corrupt\\\\bad.jpg'; saved=['first.png']"
+  },
+  {
+    "test": "CLI resize batch",
+    "status": "PASS",
+    "detail": "code=0 large=(400, 300) small=(120, 90) stdout=Resizing the image... stderr="
+  },
+  {
+    "test": "CLI text watermark",
+    "status": "PASS",
+    "detail": "code=0 changed=(31, 31, 97, 65) stdout=Adding watermark to the image...\nWatermarked and saved: D:\\project_lv3\\BulkImageEditor-main\\test_data\\output\\cli_wm\\large.jpg\nWatermarked and saved: D:\\project_lv3\\BulkImageEditor-main\\test_data\\output\\cli_wm\\photo.png\nWatermarked and saved: D:\\project_lv3\\BulkImageEditor-main\\test_data\\output\\cli_wm\\small.jpg stderr="
+  },
+  {
+    "test": "CLI resize then image watermark",
+    "status": "PASS",
+    "detail": "code=0 stdout=Resizing the image...\nAdding watermark to the image...\nAdding watermark image to image...\nWatermarked and saved: D:\\project_lv3\\BulkImageEditor-main\\test_data\\output\\cli_both\\large.jpg\nAdding watermark image to image...\nWatermarked and saved: D:\\project_lv3\\BulkImageEditor-main\\test_data\\output\\cli_both\\photo.png\nAdding watermark image to image...\nWatermarked and saved: D:\\project_lv3\\BulkImageEditor-main\\test_data\\output\\cli_both\\small.jpg stderr= size=(500, 375) mode=RGB pixel=(255, 0, 17)"
+  },
+  {
+    "test": "CLI with no action flags",
+    "status": "PASS",
+    "detail": "code=0 stdout='' stderr=''"
+  },
+  {
+    "test": "CLI --font_size from README",
+    "status": "NOT IMPLEMENTED",
+    "detail": "argparse exit=2 stderr=main.py: error: unrecognized arguments: --font_size 40"
+  },
+  {
+    "test": "CLI invalid position",
+    "status": "PASS",
+    "detail": "main.py: error: argument --position: invalid choice: 'middle' (choose from 'top-left', 'top-right', 'bottom-left', 'bottom-right', 'center')"
+  },
+  {
+    "test": "CLI invalid max_width",
+    "status": "PASS",
+    "detail": "main.py: error: argument --max_width: invalid int value: 'wide'"
+  },
+  {
+    "test": "CLI missing input directory",
+    "status": "PASS",
+    "detail": "code=1 stderr=FileNotFoundError: [WinError 3] The system cannot find the path specified: 'D:\\\\project_lv3\\\\BulkImageEditor-main\\\\test_data\\\\cli_missing_input'"
+  },
+  {
+    "test": "GUI constructs and lists system fonts",
+    "status": "PASS",
+    "detail": "fonts=185 title=Bulk Image Editor"
+  },
+  {
+    "test": "GUI defaults",
+    "status": "PASS",
+    "detail": "width=800 height=800 font=40 slider=128"
+  },
+  {
+    "test": "GUI resize and watermark checkboxes are mutually exclusive",
+    "status": "PASS",
+    "detail": "after_resize_ok=True after_watermark_ok=True"
+  },
+  {
+    "test": "GUI unchecking watermark turns resize on",
+    "status": "PASS",
+    "detail": "resize=True watermark=False"
+  },
+  {
+    "test": "GUI apply with neither option checked does nothing",
+    "status": "PASS",
+    "detail": "files=[]"
+  },
+  {
+    "test": "GUI apply without directories returns",
+    "status": "PASS",
+    "detail": "apply_settings returned after printing a directory warning"
+  },
+  {
+    "test": "GUI apply watermark without text or image returns",
+    "status": "PASS",
+    "detail": "apply_settings returned after the watermark warning"
+  },
+  {
+    "test": "GUI apply resize thread",
+    "status": "PASS",
+    "detail": "out=(350, 350)"
+  },
+  {
+    "test": "direct resizer __main__",
+    "status": "NOT TESTED",
+    "detail": "refused because an images folder exists: outside=False inside=True"
+  }
+]
